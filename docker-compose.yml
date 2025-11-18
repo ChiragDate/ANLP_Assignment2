@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  backend:
+    build: .
+    container_name: julius-backend
+    ports:
+      - "8002:8002"
+    environment:
+      # API keys - set in .env file
+      GEMINI_API_KEYS: "${GEMINI_API_KEYS}"
+      # Embedding model
+      EMBED_MODEL: "all-MiniLM-L6-v2"
+      # ChromaDB directory inside container
+      CHROMA_DB_DIR: "/app/chroma_db_scenes_clean"
+    volumes:
+      # Mount local ChromaDB directory to container
+      - ./chroma_db_scenes_clean:/app/chroma_db_scenes_clean:rw
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

@@ -27,9 +27,9 @@ This is a Retrieval-Augmented Generation (RAG) application that combines documen
 ├─────────────────────────────────────────────────────────────────┤
 │ ┌──────────────────────────────────────────────────────────────┐│
 │ │              Request Processing Layer                        ││
-│ │  - /ingest (document upload & processing)                   ││
-│ │  - /query (RAG query endpoint)                              ││
-│ │  - /health (system health check)                            ││
+│ │                                                              ││
+│ │  - /query (RAG query endpoint)                               ││
+│ │  - /health (system health check)                             ││
 │ └──────────────────────────────────────────────────────────────┘│
 │                             │                                    │
 │              ┌──────────────┼──────────────┐                    │
@@ -302,3 +302,4 @@ ANLP-Assign2/
 ## Support
 
 For issues, questions, or contributions, please refer to the project's issue tracker or contact the development team.
+
